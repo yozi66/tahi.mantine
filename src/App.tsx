@@ -3,6 +3,7 @@ import '@mantine/core/styles.css';
 import { AppShell, Burger, MantineProvider } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
 import { Router } from './Router';
+import tahiLogo from './assets/Tahi.jpg'
 import { theme } from './theme';
 
 export default function App() {
@@ -10,9 +11,9 @@ export default function App() {
   return (
     <MantineProvider theme={theme}>
       <AppShell
-        header={{ height: 60 }}
+        header={{ height: 32}}
         navbar={{
-          width: 300,
+          width: 222,
           breakpoint: 'sm',
           collapsed: { mobile: !opened },
         }}
@@ -25,7 +26,7 @@ export default function App() {
             hiddenFrom="sm"
             size="sm"
           />
-          <div>Logo</div>
+          <div><img src={tahiLogo} alt="TAHI"/></div>
         </AppShell.Header>
 
         <AppShell.Navbar p="md">Navbar</AppShell.Navbar>

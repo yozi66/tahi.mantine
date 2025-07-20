@@ -1,4 +1,6 @@
-# Component inclusions and refernces
+# Component inclusions and references
+
+This document reflects the original (generated) state of the app.
 
 **index.html** - html framework, everything starts here, root div
  * **src/main.tsx** - render App at html root div
