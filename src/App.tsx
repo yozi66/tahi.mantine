@@ -13,7 +13,7 @@ export default function App() {
   return (
     <MantineProvider theme={theme}>
       <AppShell
-        header={{ height: 32}}
+        header={{ height: 34}}
         navbar={{
           width: 254,
           breakpoint: 'sm',
@@ -21,9 +21,9 @@ export default function App() {
         }}
         padding="md"
       >
-        <AppShell.Header>
+        <AppShell.Header bg="#1b364b">
           <Group h="100%" px="md">
-            <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
+            <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" color="#fcfcfc" />
             <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
             <img src={tahiLogo} alt="TAHI"/>
           </Group>
