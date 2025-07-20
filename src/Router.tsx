@@ -1,10 +1,15 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { HomePage } from './pages/Home.page';
+import { TechnologyPage } from './pages/Technology.page';
+import { TodolistPage } from './pages/Todolist.page';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <HomePage />,
+    element: <TechnologyPage />,
+  },
+  {
+    path: '/list',
+    element: <TodolistPage />,
   },
 ]);
 
