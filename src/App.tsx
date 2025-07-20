@@ -7,26 +7,26 @@ import tahiLogo from './assets/Tahi.jpg'
 import { theme } from './theme';
 
 export default function App() {
-  const [opened, { toggle }] = useDisclosure();
+  const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
+  const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
+
   return (
     <MantineProvider theme={theme}>
       <AppShell
-        header={{ height: 32}}
+        header={{ height: 64}}
         navbar={{
-          width: 222,
+          width: 254,
           breakpoint: 'sm',
-          collapsed: { mobile: !opened },
+          collapsed: { mobile: !mobileOpened, desktop: !desktopOpened },
         }}
         padding="md"
       >
         <AppShell.Header>
-          <Burger
-            opened={opened}
-            onClick={toggle}
-            hiddenFrom="sm"
-            size="sm"
-          />
-          <div><img src={tahiLogo} alt="TAHI"/></div>
+          <div>
+            <Burger opened={mobileOpened} onClick={toggleMobile} hiddenFrom="sm" size="sm" />
+            <Burger opened={desktopOpened} onClick={toggleDesktop} visibleFrom="sm" size="sm" />
+            <img src={tahiLogo} alt="TAHI"/>
+          </div>
         </AppShell.Header>
 
         <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
