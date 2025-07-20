@@ -5,6 +5,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Router } from './Router';
 import tahiLogo from './assets/tahi_logo_v3_32px.png'
 import { theme } from './theme';
+import { TahiNavbar } from './components/TahiNavbar/TahiNavbar';
 
 export default function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
@@ -29,7 +30,7 @@ export default function App() {
           </Group>
         </AppShell.Header>
 
-        <AppShell.Navbar p="md">Navbar</AppShell.Navbar>
+        <AppShell.Navbar p="md"><TahiNavbar /></AppShell.Navbar>
 
         <AppShell.Main>
           <Router />

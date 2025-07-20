@@ -7,6 +7,7 @@ plan: two pages
 
 doc / info
   * [NavLink](https://mantine.dev/core/nav-link/)
+  * [tabler icons](https://github.com/tabler/tabler-icons)
 
 # Appshell
 
