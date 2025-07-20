@@ -2,7 +2,7 @@ import '@mantine/core/styles.css';
 
 import { AppShell, Burger, Group, MantineProvider } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { TahiRoutes } from './Router';
+import { TahiRoutes } from './TahiRouter';
 import tahiLogo from './assets/tahi_logo_v3_32px.png'
 import { theme } from './theme';
 import { TahiNavbar } from './components/TahiNavbar/TahiNavbar';
