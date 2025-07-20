@@ -12,6 +12,8 @@ This template comes with the following features:
 
 ## npm scripts
 
+Example: `npm run dev`
+
 ## Build and dev scripts
 
 - `dev` – start development server
