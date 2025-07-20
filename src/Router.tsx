@@ -9,7 +9,7 @@ const router = createHashRouter([
     element: <TechnologyPage />,
   },
   {
-    path: '/list',
+    path: '/',
     element: <TodolistPage />,
   },
   {
