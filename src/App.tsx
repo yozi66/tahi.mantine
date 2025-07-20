@@ -2,7 +2,7 @@ import '@mantine/core/styles.css';
 
 import { AppShell, Burger, Group, MantineProvider } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
-import { Router } from './Router';
+import { TahiRoutes } from './Router';
 import tahiLogo from './assets/tahi_logo_v3_32px.png'
 import { theme } from './theme';
 import { TahiNavbar } from './components/TahiNavbar/TahiNavbar';
@@ -33,7 +33,7 @@ export default function App() {
         <AppShell.Navbar p="md"><TahiNavbar /></AppShell.Navbar>
 
         <AppShell.Main>
-          <Router />
+          <TahiRoutes />
         </AppShell.Main>
       </AppShell>
     </MantineProvider>
