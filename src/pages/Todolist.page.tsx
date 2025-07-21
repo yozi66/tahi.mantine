@@ -1,7 +1,7 @@
+import Todolist from "@/components/Todolist/Todolist";
+
 export function TodolistPage() {
   return (
-    <>
-      <p>Todolist</p>
-    </>
+    <Todolist />
   );
 }
