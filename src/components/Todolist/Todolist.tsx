@@ -15,6 +15,12 @@ const data = [
     comments: `figure out how to make the checkbox clickable 
     and toggle the done state` 
   },
+  { id: 4, title: 'prevent line breaks', done: false, 
+    comments: `prevent line breaks in the table cells
+    - use white-space: nowrap
+    - use ellipsis for overflow text
+    - help: https://icflorescu.github.io/mantine-datatable/examples/column-properties-and-styling/` 
+  },
 ];
 
 type Todo = {
