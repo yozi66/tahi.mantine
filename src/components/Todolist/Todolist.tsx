@@ -34,9 +34,15 @@ const data = [
     - editing the comments in the textarea updates the table
     `
   },
-  { id: 7, title: { value: 'in-place editor for the title'}, done: false, 
+  { id: 7, title: { value: 'add in-place editor for the title'}, done: true, 
     comments: `implement an in-place editor for the title
     - clicking the title opens an input field`
+  },
+  { id: 8, title: { value: 'add editor for comments'}, done: false, 
+    comments: `the last clicked line is selected
+    - clicking a row copies the comments to the textarea below the table
+    - the textarea is editable
+    - editing the comments in the textarea updates the table`
   },
 ];
 
@@ -51,29 +57,6 @@ type Todo = {
   done: boolean;
   comments: string;
 };
-
-const columns = [
-  { accessor: 'id', title: 'ID' },
-  { accessor: 'done', title: 'Done', 
-    render: ({ done }: Pick<Todo, 'done'>) => (
-      <input type="checkbox" checked={done} readOnly /> 
-    ),
-  },
-  { accessor: 'title', title: 'Title',
-    render: ({ title }: Pick<Todo, 'title'>) => {
-      return title.editing ? (
-        <input 
-          type="text" 
-          value={title.value} 
-          style={{ width: '100%' }} 
-        />
-      ) : (
-        <Text truncate='end' size='sm'>{title.value}</Text>
-      );
-    },
-  },
-  { accessor: 'comments', title: 'Comments', ellipsis: true,},
-];
 
 export default function Todolist() {
   const [todoData, setTodoData] = useState(data);
@@ -96,6 +79,43 @@ export default function Todolist() {
       setTodoData(updatedData);
     }
   }
+
+  const handleInputChange = (record: Todo, newValue: string) => {
+    const updatedData = todoData.map((todo) => 
+      todo.id === record.id 
+        ? { ...todo, title: { value: newValue, editing: true } }
+        : todo
+    );
+    setTodoData(updatedData);
+  }
+
+  const columns = [
+    { accessor: 'id', title: 'ID' },
+    { accessor: 'done', title: 'Done', 
+      render: ({ done }: Pick<Todo, 'done'>) => (
+        <input type="checkbox" checked={done} readOnly /> 
+      ),
+    },
+    { accessor: 'title', title: 'Title',
+      render: (todo: Todo) => {
+        const title = todo.title;
+        const chars = title.value.length;
+        const width = chars < 20 ? '140px' : `${chars * 7}px`;
+        return title.editing ? (
+          <input 
+            type="text" 
+            value={title.value} 
+            style={{ width: `${width}` }}
+            onChange={(e) => handleInputChange(todo, e.target.value)}
+            autoFocus
+          />
+        ) : (
+          <Text truncate='end' size='sm'>{title.value}</Text>
+        );
+      },
+    },
+    { accessor: 'comments', title: 'Comments', ellipsis: true,},
+  ];
 
   return (
     <DataTable
