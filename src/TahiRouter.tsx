@@ -3,7 +3,6 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { TechnologyPage } from './pages/Technology.page';
 import { TodolistPage } from './pages/Todolist.page';
 import { Error404Page } from './pages/Error.404.page';
-import React from 'react';
 
 export function TahiRouter() {
   return (

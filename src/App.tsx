@@ -1,4 +1,5 @@
 import '@mantine/core/styles.css';
+import 'allotment/dist/style.css';
 
 import { AppShell, Burger, Group, MantineProvider } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
