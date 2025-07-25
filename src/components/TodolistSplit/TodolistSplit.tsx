@@ -11,8 +11,15 @@ export default function TodolistSplit() {
         <Allotment.Pane minSize={50} >
           <Todolist />
         </Allotment.Pane>
-        <Allotment.Pane minSize={50} >
-          <textarea style={{ width: '100%', height: `calc(100% - 1px)`, resize: 'none' }} /> 
+        <Allotment.Pane minSize={65} >
+          <Textarea
+            label="Task comments"
+            styles={{
+              root: { height: '100%' },
+              input: { height: `calc(100% - 30px)`, resize: 'none' },
+              wrapper: { height: '100%' },
+            }}
+          /> 
         </Allotment.Pane>
       </Allotment>
     </Box>
