@@ -44,6 +44,12 @@ const data = [
     - the textarea is editable
     - editing the comments in the textarea updates the table`
   },
+  { id: 9, title: { value: 'add split layout'}, done: true, 
+    comments: `add a splitter between the table and the textarea
+    - use a library like react-split-pane or allotment
+    - the splitter should allow resizing the textarea
+    - the textarea should be at least 50px high`
+  },
 ];
 
 type EditableString = {
