@@ -2,50 +2,53 @@ import '@mantine/core/styles.layer.css';
 import 'mantine-datatable/styles.layer.css';
 import { DataTable, DataTableColumn } from 'mantine-datatable';
 import { Text } from '@mantine/core';
-import { Todo } from '../../TodoData';
+import { TodoItem } from '../../TodoData';
 import { TodoContext } from '@/App'; 
 import {useContext} from 'react';
 
 export default function Todolist() {
-  const { todoData, setTodoData } = useContext(TodoContext);
+  const { tahiState, setTahiState } = useContext(TodoContext);
 
-  const handleCellClick = (record: Todo, column: DataTableColumn<Todo>) => {
+  const handleCellClick = (record: TodoItem, column: DataTableColumn<TodoItem>) => {
     // Toggle edit mode when the title is clicked
     if (column.accessor === 'title') {
-      const updatedData = todoData.map((todo) => 
+      const updatedData = tahiState.todoItems.map((todo) => 
         todo.id === record.id 
           ? { ...todo, title: {value: todo.title.value, editing: true} }
           : { ...todo, title: {value: todo.title.value, editing: false} }
       );
-      setTodoData(updatedData);
+      const updatedState = { ...tahiState, todoItems: updatedData };
+      setTahiState(updatedState);
     }
     // Toggle the done state when the checkbox is clicked
       if (column.accessor === 'done') {
-      const updatedData = todoData.map((todo) => 
+      const updatedData = tahiState.todoItems.map((todo) => 
         todo.id === record.id ? { ...todo, done: !todo.done } : todo
       );
-      setTodoData(updatedData);
+      const updatedState = { ...tahiState, todoItems: updatedData };
+      setTahiState(updatedState);
     }
   }
 
-  const handleInputChange = (record: Todo, newValue: string) => {
-    const updatedData = todoData.map((todo) => 
+  const handleInputChange = (record: TodoItem, newValue: string) => {
+    const updatedData = tahiState.todoItems.map((todo) => 
       todo.id === record.id 
         ? { ...todo, title: { value: newValue, editing: true } }
         : todo
     );
-    setTodoData(updatedData);
+    const updatedState = { ...tahiState, todoItems: updatedData };
+    setTahiState(updatedState);
   }
 
   const columns = [
     { accessor: 'id', title: 'ID' },
     { accessor: 'done', title: 'Done', 
-      render: ({ done }: Pick<Todo, 'done'>) => (
+      render: ({ done }: Pick<TodoItem, 'done'>) => (
         <input type="checkbox" checked={done} readOnly /> 
       ),
     },
     { accessor: 'title', title: 'Title',
-      render: (todo: Todo) => {
+      render: (todo: TodoItem) => {
         const title = todo.title;
         const chars = title.value.length;
         const width = chars < 20 ? '140px' : `${chars * 7}px`;
@@ -67,13 +70,13 @@ export default function Todolist() {
 
   return (
     <DataTable
-      records={todoData}
+      records={tahiState.todoItems}
       columns={columns}
       withTableBorder
       striped
       highlightOnHover
       onCellClick={({record, column}) => {
-        handleCellClick(record as Todo, column);
+        handleCellClick(record as TodoItem, column);
         }
       }
     />

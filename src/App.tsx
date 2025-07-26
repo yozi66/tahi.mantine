@@ -8,23 +8,23 @@ import { TahiRoutes } from './TahiRouter';
 import tahiLogo from './assets/tahi_logo_v3_32px.png'
 import { TahiNavbar } from './components/TahiNavbar/TahiNavbar';
 import { theme } from './theme';
-import { data } from './TodoData';
+import { sampleState, TahiState } from './TodoData';
 
 export const TodoContext = createContext<{ 
-    todoData: typeof data; 
-    setTodoData: React.Dispatch<React.SetStateAction<typeof data>> 
+    tahiState: TahiState; 
+    setTahiState: React.Dispatch<React.SetStateAction<TahiState>> 
   }>(
-    { todoData: data, setTodoData: () => {} }
+    { tahiState: sampleState, setTahiState: () => {} }
 );
 
 export default function App() {
   const [mobileOpened, { toggle: toggleMobile }] = useDisclosure();
   const [desktopOpened, { toggle: toggleDesktop }] = useDisclosure(true);
-  const [todoData, setTodoData] = useState(data);
+  const [tahiState, setTahiState] = useState(sampleState);
 
   return (
     <MantineProvider theme={theme}>
-      <TodoContext.Provider value={{ todoData, setTodoData }}>
+      <TodoContext.Provider value={{ tahiState, setTahiState }}>
         <AppShell
           header={{ height: 34}}
           navbar={{

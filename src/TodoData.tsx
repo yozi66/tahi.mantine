@@ -1,4 +1,4 @@
-export const data = [
+const items = [
   { id: 1, title: { value: 'set up table columns'}, done: true, 
     comments: 'We start with title and comments'
   },
@@ -51,10 +51,19 @@ type EditableString = {
   editing?: boolean;
 };
 
-export type Todo = {
+export type TodoItem = {
   id: number;
   title: EditableString;
   done: boolean;
   comments: string;
 };
 
+export type TahiState = {
+  selectedItemId?: number;
+  todoItems: TodoItem[];
+}
+
+export const sampleState: TahiState = {
+  selectedItemId: undefined,
+  todoItems: items,
+};
