@@ -5,7 +5,7 @@ import { DataTable, DataTableColumn } from 'mantine-datatable';
 import { Text } from '@mantine/core';
 import { TahiState, TodoItem } from '../../TodoData';
 import { TodoContext } from '@/App'; 
-import {useContext} from 'react';
+import { useContext } from 'react';
 
 export default function Todolist() {
   const { tahiState, setTahiState } = useContext(TodoContext);
@@ -81,11 +81,13 @@ export default function Todolist() {
       records={tahiState.getTodoItems()}
       columns={columns}
       withTableBorder
-      striped
       highlightOnHover
       onCellClick={({record, column}) => {
-        handleCellClick(record as TodoItem, column);
+          handleCellClick(record as TodoItem, column);
         }
+      }
+      rowBackgroundColor={({ id }) =>
+        tahiState.getSelectedItemId() === id ? { dark: '#444444', light: '#eeeeee' } : undefined
       }
     />
   );

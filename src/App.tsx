@@ -1,4 +1,5 @@
-import '@mantine/core/styles.css';
+import '@mantine/core/styles.layer.css';
+import 'mantine-datatable/styles.layer.css';
 import 'allotment/dist/style.css';
 
 import { AppShell, Burger, Group, MantineProvider } from '@mantine/core';
