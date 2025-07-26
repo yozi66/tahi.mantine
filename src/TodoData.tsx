@@ -32,7 +32,7 @@ const items = [
     comments: `implement an in-place editor for the title
     - clicking the title opens an input field`
   },
-  { id: 8, title: { value: 'add editor for comments'}, done: false, 
+  { id: 8, title: { value: 'add editor for comments'}, done: true, 
     comments: `the last clicked line is selected
     - clicking a row copies the comments to the textarea below the table
     - the textarea is editable
@@ -43,6 +43,62 @@ const items = [
     - use a library like react-split-pane or allotment
     - the splitter should allow resizing the textarea
     - the textarea should be at least 50px high`
+  },
+  { id: 10, title: { value: 'add a button to add new todos'}, done: false, 
+    comments: `add a button to add new todos
+    - the button should open a dialog to enter the title and comments
+    - the new todo should be added to the top of the list`
+  },
+  { id: 11, title: { value: 'add a button to delete todos'}, done: false, 
+    comments: `add a button to delete todos
+    - the button should delete the selected todo
+    - if no todo is selected, it should delete the last todo`
+  },
+  { id: 13, title: { value: 'add a button to save the todo list'}, done: false, 
+    comments: `add a button to save the todo list
+    - the button should save the todo list to localStorage
+    - if the todo list is empty, it should show a message`
+  },
+  { id: 14, title: { value: 'add a button to load the todo list'}, done: false, 
+    comments: `add a button to load the todo list
+    - the button should load the todo list from localStorage
+    - if the todo list is empty, it should show a message`
+  },
+  { id: 15, title: { value: 'add a button to export the todo list'}, done: false, 
+    comments: `add a button to export the todo list
+    - the button should export the todo list to a JSON file
+    - the file should be named todos.json`
+  },
+  { id: 16, title: { value: 'add a button to import the todo list'}, done: false, 
+    comments: `add a button to import the todo list
+    - the button should import the todo list from a JSON file
+    - the file should be named todos.json
+    - if the file is not found, it should show a message`
+  },
+  { id: 23, title: { value: 'add a button to filter the todo list'}, done: false, 
+    comments: `add a button to filter the todo list
+    - the button should filter the todo list by title
+    - if no todo is selected, it should filter the todo list by title`
+  },
+  { id: 24, title: { value: 'add a button to search the todo list'}, done: false, 
+    comments: `add a button to search the todo list
+    - the button should search the todo list by title
+    - if no todo is selected, it should search the todo list by title`
+  },
+  { id: 25, title: { value: 'add a button to clear the search'}, done: false, 
+    comments: `add a button to clear the search
+    - the button should clear the search
+    - if no todo is selected, it should clear the search`
+  },
+  { id: 27, title: { value: 'add a button to hide completed todos'}, done: false, 
+    comments: `add a button to hide completed todos
+    - the button should hide completed todos
+    - if no todo is selected, it should hide completed todos`
+  },
+  { id: 28, title: { value: 'add a button to show all todos'}, done: false, 
+    comments: `add a button to show all todos
+    - the button should show all todos
+    - if no todo is selected, it should show all todos`
   },
 ];
 
