@@ -87,6 +87,9 @@ export class TahiState {
     return new TahiState([...this.todoItems], this.selectedItemIndex); 
   }
 
+  public getSelectedItem(): TodoItem | undefined {
+    return this.selectedItemIndex !== undefined ? this.todoItems[this.selectedItemIndex] : undefined; 
+  }
   public getSelectedItemId(): number | undefined {
     return this.selectedItemId;
   }
