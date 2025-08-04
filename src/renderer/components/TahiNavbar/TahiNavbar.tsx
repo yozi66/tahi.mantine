@@ -1,6 +1,6 @@
 import { NavLink } from '@mantine/core';
 import { useLocation } from 'react-router-dom';
-import { IconArticle, IconTool } from '../../components/TahiIcons/TahiIcons';
+import { IconArticle, IconTool } from '../TahiIcons/TahiIcons';
 
 export function TahiNavbar() {
 
